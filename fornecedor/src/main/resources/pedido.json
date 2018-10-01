@@ -1,0 +1,29 @@
+{
+  "numero" : 123456789,
+  "status" : "pending",
+  "total" : 100,
+  "cobranca" : {
+    "nome" : "Fabio Koehler",
+    "endereco" : "Rua 1, numero 2"
+  },
+  "entrega" : {
+    "name" : "Fabio Koehler",
+    "endereco" : "Rua 1, numero 2"
+  },
+  "itens" : [
+    {
+      "sku" : "123",
+      "quantidade" : 1,
+      "total" : 10
+    },
+    {
+      "sku" : "456",
+      "quantidade" : 2,
+      "total" : 20
+    }
+  ],
+  "cliente" : {
+    "nome" : "Fabio Koehler"
+  }
+}
+
