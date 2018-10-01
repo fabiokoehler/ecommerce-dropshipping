@@ -1,0 +1,15 @@
+{
+  "name" : "Código Limpo Habilidades Práticas do Agile Software",
+  "description" : "Mesmo um código ruim pode funcionar. Mas se ele não for limpo, pode acabar com uma empresa de desenvolvimento.",
+  "images" :[ {
+    "miniUrl" : "http://miniurl",
+    "largeUrl" : "http://largeurl"
+  }],
+  "price" : 100.00,
+  "sku" : "11111",
+  "stock": 10,
+  "categories" : [{
+    "name" : "Informática"
+  }]
+}
+

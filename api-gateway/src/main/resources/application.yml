@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+zuul:
+  trace-request-body: true
+  include-debug-header: true
+  debug:
+    request: true
+  routes:
+    auth-server:
+      path: /login/**
+      url: http://127.0.0.1:8081/
+      sensitiveHeaders: Cookie,Set-Cookie
+      stripPrefix: false
+    product:
+      path: /product/**
+      url: http://127.0.0.1:9001/
+      stripPrefix: false
+    order:
+      path: /order/**
+      url: http://127.0.0.1:9002/
+      stripPrefix: false
+      sensitiveHeaders: Cookie,Set-Cookie
+
+com.koehler.security.jwt.secret: otherpeopledontknowit
+
