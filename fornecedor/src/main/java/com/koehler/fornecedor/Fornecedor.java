@@ -15,7 +15,7 @@ public class Fornecedor {
     @PostMapping("/pedido")
     public Pedido efetuarPedido(@RequestBody Pedido pedido) {
 
-        LOGGER.info("Fornecedor recebeu pedido: ", pedido);
+        LOGGER.info("Fornecedor recebeu pedido: " + pedido);
 
         pedido.setStatus("CONFIRMADO");
 

@@ -22,6 +22,7 @@
 		<module>auth-server</module>
 		<module>api-gateway</module>
 		<module>wholesaler</module>
+		<module>fornecedor</module>
 	</modules>
 
 	<properties>
