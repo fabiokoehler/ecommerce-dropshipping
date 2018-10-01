@@ -37,7 +37,7 @@ public class KafkaTest {
         Order order = new Order();
         order.setNumber(123l);
 
-		orderSender.send(ORDER_STATE_MACHINE, order);
+		orderSender.send(order);
 
 	}
 }

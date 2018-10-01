@@ -14,7 +14,7 @@ public class WholesalerReceiver {
     @Autowired
     private OrderBO orderBO;
 
-    @KafkaListener(topics = "${kafka.topic.wholesaler}")
+    @KafkaListener(topics = "${kafka.topic.wholesaler-status}")
     public void receive(Order order) {
 
         LOGGER.info("processing wholesaler response='{}'", order);

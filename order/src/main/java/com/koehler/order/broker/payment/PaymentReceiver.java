@@ -14,7 +14,7 @@ public class PaymentReceiver {
     @Autowired
     private OrderBO orderBO;
 
-    @KafkaListener(topics = "${kafka.topic.payment}")
+    @KafkaListener(topics = "${kafka.topic.payment-status}")
     public void receive(Payment payment) {
         LOGGER.info("Payment received='{}'", payment);
 

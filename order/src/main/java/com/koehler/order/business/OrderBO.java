@@ -22,7 +22,7 @@ public class OrderBO {
         // send message with order status = confirm wholesaler
         // update order status with payment approved
         // business logic would be here....
-        Order order = repository.findByOrderNumber(payment.getOrderNumber());
+        Order order = repository.findByNumber(payment.getOrderNumber());
         order.setStatus("PAYMENT-APPROVED");
         repository.save(order);
 
@@ -32,7 +32,7 @@ public class OrderBO {
 
     public void processWholesalerResponse(Order wholesalerOrder) {
 
-        Order order = repository.findByOrderNumber(wholesalerOrder.getNumber());
+        Order order = repository.findByNumber(wholesalerOrder.getNumber());
         order.setStatus("COMPLETE");
         repository.save(order);
 

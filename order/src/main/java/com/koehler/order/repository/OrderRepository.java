@@ -10,6 +10,7 @@ public interface OrderRepository extends MongoRepository<Order, String> {
 
     @Query("{'customer.id': ?0}")
     List<Order> findByCustomerId(String id);
-    Order findByOrderNumber(Long orderNumber);
+
+    Order findByNumber(Long orderNumber);
 
 }
