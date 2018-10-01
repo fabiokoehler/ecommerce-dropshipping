@@ -31,8 +31,10 @@ public class WholesalerBO {
 
         // if result successfully
 
+        Pedido pedido = new Pedido();
+        pedido.setNumero(order.getNumber());
 
-        Feign.builder().target(FornecedorClient.class, "http://localhost:8080/pedido").efetuarPedido(new Pedido());
+        fornecedorClient.efetuarPedido(pedido);
 
         order.setStatus("WHOLESALER-APPROVED");
 
