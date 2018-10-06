@@ -1,15 +1,90 @@
-{
-  "name" : "Código Limpo Habilidades Práticas do Agile Software",
-  "description" : "Mesmo um código ruim pode funcionar. Mas se ele não for limpo, pode acabar com uma empresa de desenvolvimento.",
-  "images" :[ {
-    "miniUrl" : "http://miniurl",
-    "largeUrl" : "http://largeurl"
-  }],
-  "price" : 100.00,
-  "sku" : "11111",
-  "stock": 10,
-  "categories" : [{
-    "name" : "Informática"
-  }]
+[{
+  "id": "1",
+  "name": "Código Limpo Habilidades Práticas do Agile Software",
+  "description": "Mesmo um código ruim pode funcionar. Mas se ele não for limpo, pode acabar com uma empresa de desenvolvimento.",
+  "images": [
+    {
+      "id": null,
+      "miniUrl": "http://miniurl",
+      "largeUrl": "http://largeurl"
+    }
+  ],
+  "price": 100,
+  "sku": "13536644",
+  "stock": 1000,
+  "categories": [
+    {
+      "id": 1,
+      "name": "Informática"
+    }
+  ]
 }
+,
+{
+  "id": "2",
+  "name": "Production Ready Microservices",
+  "description": "One of the biggest challenges for organizations that have adopted microservice architecture is the lack of architectural",
+  "images": [
+    {
+      "id": null,
+      "miniUrl": "http://miniurl",
+      "largeUrl": "http://largeurl"
+    }
+  ],
+  "price": 200,
+  "sku": "43341347",
+  "stock": 1000,
+  "categories": [
+    {
+      "id": 1,
+      "name": "Informática"
+    }
+  ]
+}
+,
 
+  {
+    "id": "3",
+    "name": "Introdução À Arquitetura E Design De Software",
+    "description": "Criar um projeto na plataforma Java é um grande desafio: são diversas opções de tecnologias e formas de arquitetar a aplicação",
+    "images": [
+      {
+        "id": null,
+        "miniUrl": "http://miniurl",
+        "largeUrl": "http://largeurl"
+      }
+    ],
+    "price": 200,
+    "sku": "110868329",
+    "stock": 1000,
+    "categories": [
+      {
+        "id": 1,
+        "name": "Informática"
+      }
+    ]
+  }
+,
+  {
+    "id": "4",
+    "name": "Sapiens - Uma Breve História da Humanidade",
+    "description": "O autor repassa a história da humanidade, ou do homo sapiens, desde o surgimento da espécie durante a pré-história até o presente",
+    "images": [
+      {
+        "id": null,
+        "miniUrl": "http://miniurl",
+        "largeUrl": "http://largeurl"
+      }
+    ],
+    "price": 70,
+    "sku": "122124351",
+    "stock": 500,
+    "categories": [
+      {
+        "id": 2,
+        "name": "História"
+      }
+    ]
+  }
+
+]
