@@ -1,0 +1,50 @@
+-----------kafka on windows
+- starting zookeeper server
+cmd -> zkserver 
+
+
+- starting kafka server
+
+set KAFKA_JMX_OPTS=-Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Djava.net.preferIPv4Stack=true
+set JMX_PORT=9997
+
+
+cd C:\app\kafka\kafka-2.0.0
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+- starting kafka-manager 
+cd C:\kafka-manager\bin
+kafka-manager
+
+URL: http://localhost:9000/clusters/order-cluster/topics/order-state-machine
+
+
+--consumer
+set JMX_PORT=9996
+cd C:\app\kafka\kafka-2.0.0\bin\windows
+kafka-console-consumer --bootstrap-server localhost:9092 --topic order-state-machine --from-beginning
+
+
+-- producer
+cd C:\app\kafka\kafka-2.0.0\bin\windows
+set JMX_PORT=9996
+kafka-console-producer --broker-list localhost:9092 --topic order-state-machine
+
+cd C:\app\kafka\kafka-2.0.0\bin\windows
+set JMX_PORT=9995
+kafka-console-consumer --bootstrap-server localhost:9092 --topic order-state-machine --from-beginning
+
+-- commands
+cd C:\app\kafka\kafka-2.0.0\bin\windows
+set JMX_PORT=9993
+kafka-topics --zookeeper localhost:2181 --list
+
+-- Check the number of messages read and written, as well as the lag for each consumer in a specific consumer group
+kafka-consumer-offset-checker --group ecommerce --topic payment-status --zookeeper localhost:2181
+
+
+-- delete topic
+kafka-topics --delete --zookeeper localhost:2181 --topic your_topic_name
+
+-- create topic
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic order-state-machine

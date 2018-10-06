@@ -1,0 +1,45 @@
+minikube start --vm-driver hyperv --hyperv-virtual-switch "Primary Virtual Switch"
+
+kubectl get pods -n kube-system
+
+---- stop minikube
+minikube ssh
+sudo poweroff
+
+--- start dashboard
+minikube dashboard
+
+---------------------------------------
+kubernetes kafka 
+---------------------------------------
+
+kubectl apply -f ./configure/minikube-storageclass-broker.yml
+kubectl apply -f ./configure/minikube-storageclass-zookeeper.yml
+
+kubectl apply -f 00-namespace.yml
+
+kubectl apply -f ./zookeeper
+
+kubectl apply -f ./kafka
+
+kubectl apply -f ./outside-services
+
+
+(Yahoo) Kafka Manager:
+kubectl apply -f ./yahoo-kafka-manager
+
+-- Acceding kafka manager
+--starting proxy
+kubectl proxy
+
+--accessing
+http://localhost:8001/api/v1/namespaces/kafka/services/kafka-manager:/proxy/
+
+----------------------------------------
+
+
+
+------------ mongodb
+mongodb
+-- go to mongodb/bin folder
+start mongo with: mongod

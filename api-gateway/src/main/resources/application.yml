@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 80
 
 zuul:
   trace-request-body: true
@@ -21,6 +21,12 @@ zuul:
       url: http://127.0.0.1:9002/
       stripPrefix: false
       sensitiveHeaders: Cookie,Set-Cookie
+    search:
+      path: /search/**
+      url: http://127.0.0.1:9200/
+      prefix: /search/
+      stripPrefix: true
+
 
 com.koehler.security.jwt.secret: otherpeopledontknowit
 

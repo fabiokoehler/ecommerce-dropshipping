@@ -1,0 +1,119 @@
+
+
+------------------------------------
+create index
+PUT localhost:9200/books
+----------------------------------
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 1
+  },
+  "mappings": {
+    "book": {
+      "properties": {
+        "title": {
+          "type": "text"
+        },
+        "author": {
+          "type": "keyword"
+        },
+        "publisher": {
+          "type": "keyword"
+        },
+        "price": {
+          "type": "long"
+        }
+      }
+    }
+  }
+}
+
+-------------------------------
+create objects 
+POST localhost:9200/books/book
+-----------------------------------
+
+select "{\"title\":\"" || title || ",\"author\": \" Robert C. Martin","publisher": "Prentice Hall","price": 50}" || title, author from br
+
+
+{"title":"Harry Potter Boxed Set, Books 1-5 (Harry Potter, #1-5)","author": "J.K. Rowling","publisher": "Prentice Hall","price":8}"
+{"title": "O Codificador Limpo","author": "Robert C. Martin","publisher": "Prentice Hall","price": 50}
+{"title": "Código Limpo","author": "Robert C. Martin","publisher": "Prentice Hall","price": 45}
+{"title": "A Guerra Dos Tronos","author": "George R. R. Martin","publisher": "Casa Da Palavra","price": 45}
+
+
+--------------------------------
+queries
+-----------------------------------
+
+http://localhost:9200/books/book/_search?q=title:tronos
+
+
+{
+  "query": {
+    "match": {
+      "title": "tronos"
+    }
+  }
+}
+
+
+{
+  "query": {
+    "range": {
+      "price": {
+        "gte" : 0,
+        "lte" : 45
+      }
+    }
+  }
+}
+
+{
+  "query": {
+    "term": {
+      "author": "Robert C. Martin"
+    }
+  }
+}
+
+
+{
+  "query": {
+    "bool": {
+      "filter": [
+        { "term": { "author" : "Robert C. Martin" } },
+        { "term": { "publisher" : "Prentice Hall" } },
+        { "range": {
+          "price": {
+            "gte" : 0,
+            "lte" : 50
+          }
+        }}
+      ]
+    }
+  }
+}
+
+
+
+{
+  "query": {
+    "term": {
+      "fabric": "cotton"
+    }
+  },
+  "aggs": {
+    "size": {
+      "terms": {
+         "field": "size"
+       }
+    },
+    "color": {
+      "terms": {
+         "field": "color"
+       }
+    }
+  }
+}
