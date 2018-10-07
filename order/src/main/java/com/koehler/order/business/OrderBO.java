@@ -1,8 +1,8 @@
 package com.koehler.order.business;
 
 import com.koehler.order.broker.order.OrderSender;
-import com.koehler.order.model.Order;
-import com.koehler.order.model.Payment;
+import com.koehler.model.Order;
+import com.koehler.model.Payment;
 import com.koehler.order.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

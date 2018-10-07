@@ -1,6 +1,6 @@
 package com.koehler.order.repository;
 
-import com.koehler.order.model.Order;
+import com.koehler.model.Order;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

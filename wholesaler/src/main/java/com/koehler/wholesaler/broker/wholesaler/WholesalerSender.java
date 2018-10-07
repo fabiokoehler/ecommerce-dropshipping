@@ -1,13 +1,11 @@
 package com.koehler.wholesaler.broker.wholesaler;
 
-import com.koehler.wholesaler.model.Order;
-import com.koehler.wholesaler.model.Wholesaler;
+import com.koehler.model.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Service;
 
 public class WholesalerSender {
 

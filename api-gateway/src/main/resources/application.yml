@@ -2,10 +2,6 @@ server:
   port: 80
 
 zuul:
-  trace-request-body: true
-  include-debug-header: true
-  debug:
-    request: true
   routes:
     auth-server:
       path: /login/**
@@ -28,5 +24,15 @@ zuul:
       stripPrefix: true
 
 
-com.koehler.security.jwt.secret: otherpeopledontknowit
+com.koehler.security.jwt.secret: pocecommercedropshipping
 
+spring:
+  application:
+    name: api-gateway
+
+  sleuth:
+    sampler:
+      probability: 1
+
+  zipkin:
+    base-url: http://localhost:9411/

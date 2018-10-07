@@ -2,7 +2,7 @@ package com.koehler.order;
 
 import com.koehler.order.broker.order.OrderReceiver;
 import com.koehler.order.broker.order.OrderSender;
-import com.koehler.order.model.Order;
+import com.koehler.model.Order;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;

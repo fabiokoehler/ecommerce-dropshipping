@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ProductController {
@@ -29,13 +30,25 @@ public class ProductController {
         }
     }
 
+    @GetMapping("/product/{id}")
+    public ResponseEntity getProduct(@PathVariable String id) {
+
+        Optional<Product> product = repository.findById(id);
+
+        if (product.isPresent()) {
+            return ResponseEntity.status(HttpStatus.OK).body(product.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
     @PostMapping("/product")
     Product newProduct(@RequestBody Product product) {
         return repository.save(product);
     }
 
     @DeleteMapping("/product/{id}")
-    public void deleteStudent(@PathVariable String id) {
+    public void deleteProduct(@PathVariable String id) {
         repository.deleteById(id);
     }
 

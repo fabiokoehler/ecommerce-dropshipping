@@ -1,4 +1,4 @@
-package com.koehler.order.model;
+package com.koehler.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

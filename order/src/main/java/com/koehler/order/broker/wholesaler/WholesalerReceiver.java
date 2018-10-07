@@ -1,7 +1,7 @@
 package com.koehler.order.broker.wholesaler;
 
 import com.koehler.order.business.OrderBO;
-import com.koehler.order.model.Order;
+import com.koehler.model.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class WholesalerReceiver {
     @Autowired
     private OrderBO orderBO;
 
-    @KafkaListener(topics = "${kafka.topic.wholesaler-status}")
+    @KafkaListener(topics = "${kafka.topic.wholesaler-status}", containerFactory="kafkaListenerContainerFactoryWholesaler")
     public void receive(Order order) {
 
         LOGGER.info("processing wholesaler response='{}'", order);

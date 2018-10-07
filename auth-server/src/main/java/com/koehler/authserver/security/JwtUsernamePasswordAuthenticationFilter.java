@@ -51,7 +51,7 @@ public class JwtUsernamePasswordAuthenticationFilter extends AbstractAuthenticat
                 .setSubject(auth.getName())
                 .claim("authorities", auth.getAuthorities().stream()
                         .map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
-                .claim("name","Fabio Koehler")
+                .claim("name","Fulano da Silva")
                 .claim("userId", "1")
                 .setIssuedAt(Date.from(now))
                 .setExpiration(Date.from(now.plusSeconds(config.getExpiration())))

@@ -6,10 +6,11 @@ import com.koehler.wholesaler.client.model.Cliente;
 import com.koehler.wholesaler.client.model.Endereco;
 import com.koehler.wholesaler.client.model.Item;
 import com.koehler.wholesaler.client.model.Pedido;
-import com.koehler.wholesaler.model.Order;
-import com.koehler.wholesaler.model.OrderLine;
+import com.koehler.model.Order;
+import com.koehler.model.OrderLine;
 import com.koehler.wholesaler.repository.WholesalerRepository;
-import feign.Feign;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,8 @@ import java.util.List;
 
 @Component
 public class WholesalerBO {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(WholesalerBO.class);
 
     @Autowired
     private WholesalerRepository repository;
@@ -67,11 +70,12 @@ public class WholesalerBO {
 
         pedido.setItens(itens);
 
-        fornecedorClient.efetuarPedido(pedido);
-
-        order.setStatus("WHOLESALER-APPROVED");
-
-        wholesalerSender.send(order);
+        Pedido pedidoResponse = fornecedorClient.efetuarPedido(pedido);
+        if ("CONFIRMADO".equals(pedidoResponse.getStatus())) {
+            order.setStatus("WHOLESALER-APPROVED");
+            wholesalerSender.send(order);
+        } else {
+            LOGGER.warn("Order rejected by the wholesaler", pedido);
+        }
     }
-
 }

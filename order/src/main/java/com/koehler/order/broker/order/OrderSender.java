@@ -1,6 +1,6 @@
 package com.koehler.order.broker.order;
 
-import com.koehler.order.model.Order;
+import com.koehler.model.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class OrderSender {
     private String topic;
 
     public void send(Order payload) {
-        LOGGER.info("sending order='{}'", payload);
+        LOGGER.info("Order event='{}'", payload);
         kafkaTemplate.send(topic, payload);
     }
 }

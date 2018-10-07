@@ -1,6 +1,6 @@
 package com.koehler.order.broker.order;
 
-import com.koehler.order.model.Order;
+import com.koehler.model.Order;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;

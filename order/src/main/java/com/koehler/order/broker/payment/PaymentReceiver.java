@@ -1,7 +1,7 @@
 package com.koehler.order.broker.payment;
 
 import com.koehler.order.business.OrderBO;
-import com.koehler.order.model.Payment;
+import com.koehler.model.Payment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +14,9 @@ public class PaymentReceiver {
     @Autowired
     private OrderBO orderBO;
 
-    @KafkaListener(topics = "${kafka.topic.payment-status}")
+    @KafkaListener(topics = "${kafka.topic.payment-status}", containerFactory="kafkaListenerContainerFactoryPayment")
     public void receive(Payment payment) {
-        LOGGER.info("Payment received='{}'", payment);
+        LOGGER.info("Payment update event='{}'", payment);
 
         if (payment != null && "PAYMENT-APPROVED".equals(payment.getStatus())) {
             orderBO.processPaymentResponse(payment);

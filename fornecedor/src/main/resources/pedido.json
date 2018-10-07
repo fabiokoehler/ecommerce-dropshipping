@@ -7,7 +7,7 @@
     "endereco" : "Rua 1, numero 2"
   },
   "entrega" : {
-    "name" : "Fabio Koehler",
+    "nome" : "Fulano da Silva",
     "endereco" : "Rua 1, numero 2"
   },
   "itens" : [

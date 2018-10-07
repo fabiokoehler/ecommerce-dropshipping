@@ -1,12 +1,11 @@
 package com.koehler.order.controller;
 
-import com.koehler.order.model.Order;
+import com.koehler.model.Order;
 import com.koehler.order.repository.OrderRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -33,5 +32,10 @@ public class OrderController {
     @PostMapping("/order")
     Order newOrder(@RequestBody Order newOrder) {
         return repository.save(newOrder);
+    }
+
+    @DeleteMapping("/order")
+    public void delete() {
+        repository.deleteAll();
     }
 }

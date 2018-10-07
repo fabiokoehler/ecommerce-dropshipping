@@ -17,7 +17,7 @@ public class JwtAuthenticationConfig {
     @Value("${com.koehler.security.jwt.prefix:Bearer}")
     private String prefix;
 
-    @Value("${com.koehler.security.jwt.expiration:#{3000000}}")
+    @Value("${com.koehler.security.jwt.expiration:#{30000}}")
     private int expiration;
 
     @Value("${com.koehler.security.jwt.secret}")

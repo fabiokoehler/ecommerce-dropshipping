@@ -1,29 +1,39 @@
-{
-  "number" : 123456789,
-  "status" : "pending",
-  "total" : 100,
-  "billing" : {
-    "name" : "Fabio Koehler",
-    "address" : "Rua 1, numero 2"
-  },
-  "shipping" : {
-    "name" : "Fabio Koehler",
-    "address" : "Rua 1, numero 2"
-  },
-  "lines" : [
-    {
-      "sku" : "123",
-      "quantity" : 1,
-      "total" : 10
+[
+  {
+    "id" : "1",
+    "number" : 1,
+    "status" : "pending",
+    "total" : 100,
+    "billing" : {
+      "id" : "1",
+      "name" : "Fulado da Silva",
+      "address" : "Rua 1, numero 2"
     },
-    {
-      "sku" : "456",
-      "quantity" : 2,
-      "total" : 20
+    "shipping" : {
+      "id" : "2",
+      "name" : "Fulano da Silva",
+      "address" : "Rua 1, numero 2"
+    },
+    "lines" : [
+      {
+        "id" : "1",
+        "sku" : "123",
+        "quantity" : 1,
+        "total" : 10
+      },
+      {
+        "id" : "2",
+        "sku" : "456",
+        "quantity" : 2,
+        "total" : 20
+      }
+    ],
+    "customer" : {
+      "id" : 1,
+      "name" : "Fulado da Silva"
     }
-  ],
-  "customer" : {
-    "name" : "Fabio Koehler"
   }
-}
+,
+
+  ]
 

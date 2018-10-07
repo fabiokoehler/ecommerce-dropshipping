@@ -1,4 +1,4 @@
-package com.koehler.wholesaler.model;
+package com.koehler.model;
 
 import lombok.Data;
 
