@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class OrderController {
@@ -26,6 +27,18 @@ public class OrderController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         } else {
             return ResponseEntity.status(HttpStatus.OK).body(repository.findByCustomerId(JwtUtils.getUserId(auth)));
+        }
+    }
+
+    @GetMapping("/order/{id}")
+    public ResponseEntity getOrder(@PathVariable String id) {
+
+        Optional<Order> order = repository.findById(id);
+
+        if (order.isPresent()) {
+            return ResponseEntity.status(HttpStatus.OK).body(order.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
 

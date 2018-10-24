@@ -38,9 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers(config.getUrl()).permitAll()
                     .antMatchers("/backend/admin").hasRole("ADMIN")
-                    .antMatchers("/order").hasRole("USER")
+                    .antMatchers("/order/**").hasRole("USER")
                     .antMatchers("/product").permitAll()
-                    .antMatchers("/search").permitAll();;
+                    .antMatchers("/search").permitAll();
     }
 }
 
